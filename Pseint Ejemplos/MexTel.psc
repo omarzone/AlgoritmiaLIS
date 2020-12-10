@@ -1,0 +1,57 @@
+Algoritmo MexTel
+	
+	//Definir variables
+	Definir minutosLlamada como entero;
+	Definir impuesto como Real;
+	Definir costoLlamada como Real;
+	Definir turno Como Caracter;
+	Definir dia Como Caracter;
+	Definir costoTotal como Real;
+	//Entrada
+	Escribir "Proporcione los minutos de la llamada :";
+	Leer minutosLlamada;
+	Escribir "Proporcione el dia de la semana (Dias completos) : ";  //Se espera Domingo y cualquier otro dia.
+	Leer dia;
+	Escribir "Proporcione el turno en el cual se realizó la llamada (M o V):"; //Se esperan variables M y V
+	Leer turno;
+	
+	//Proceso 
+	Si minutosLlamada <5  Entonces
+		costoLlamada = minutosLlamada* 1;
+	SiNo
+		Si minutosLlamada <8 Entonces
+			costoLlamada =  (minutosLlamada-5) * .80 + 5;
+		SiNo
+			Si minutosLlamada <10 Entonces
+				costoLlamada = (minutosLlamada - 8) * .70 + 5 + 3*(.80);
+			SiNo
+				Si minutosLlamada >10 Entonces
+					costoLlamada = (minutosLlamada -10)*.50 +5 +3*(.80)+2*(.70);
+				FinSi
+			FinSi
+		FinSi
+		
+	FinSi
+	
+	//dia se convierte a mayusculas 
+	dia = Mayusculas(dia);
+	turno = Mayusculas(turno);
+	// La condicion solo es necesaria cuando es día inhabil = Domingo
+	Si dia = "DOMINGO" Entonces
+		impuesto =  costoLlamada*.03;
+	SiNo
+		Si turno = "M" Entonces
+			impuesto  =costoLlamada * .15;
+		SiNo
+			impuesto = costoLlamada * .10;
+		FinSi
+	FinSi
+	
+	costoTotal = costoLlamada + impuesto;
+	
+	//Salida
+	Escribir "El costo de la llamada es $",costoLlamada;
+	Escribir "Impuestos $", impuesto;
+	Escribir "Costo total $", costoTotal;
+	
+FinAlgoritmo

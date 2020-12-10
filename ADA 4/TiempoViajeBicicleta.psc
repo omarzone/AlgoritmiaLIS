@@ -16,6 +16,6 @@ Algoritmo TiempoViajeBicicleta
 	// t = d/v
 	tiempo = distancia/velocidad;
 	//Salida
-	Escribir "El tiempo que demora en llegar de una ciudad a otra es: " tiempo ;
+	Escribir "El tiempo que demora en llegar de una ciudad a otra es: " ,tiempo ;
 	
 FinAlgoritmo
